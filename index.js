@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const router = require("./routes/serviceRoutes.js");
 const app = express();
 app.use(express.json());
+const PORT = process.env.PORT || 3000
 
 // adiciona o post da rota de serviços que esta na pasta de rotas -------------------------------------------------
 
@@ -33,7 +34,7 @@ mongoose
     `mongodb+srv://${DB_USER}:${DB_PASS}@limapicturesportfolio.kxphqx3.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() => {
-    app.listen(3000);
+    app.listen(PORT);
     console.log("conectado");
   })
   .catch();
