@@ -34,5 +34,17 @@ router.get('/', async (req, res) =>{
     }
 })
 
+router.patch('/:id', async (req,res) => {
+    const id = req.params.id
+        const {icon, title, text} = req.body
+        const service = {icon, title, text} 
+    try {
+        const updatedService = await Service.updateOne({ _id: id }, service)
+        res.status(200).json({menssagem: "Feito com sucesso"})
+    } catch (error) {
+        res.status(500).json({error: error})
+    }
+})
+
 
 module.exports = router
