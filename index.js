@@ -1,9 +1,15 @@
 const express = require("express");
 const res = require("express/lib/response");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const router = require("./routes/serviceRoutes.js");
 const app = express();
 app.use(express.json());
+app.use((req, res, next) =>{
+  res.header("Access-Control-Allow-Origin", "*")
+  app.use(cors());
+  next();
+})
 const PORT = process.env.PORT || 3000
 
 // adiciona o post da rota de serviços que esta na pasta de rotas -------------------------------------------------
