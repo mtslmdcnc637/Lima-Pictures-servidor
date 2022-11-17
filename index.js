@@ -12,6 +12,12 @@ app.use((req, res, next) =>{
 })
 const PORT = process.env.PORT || 3000
 
+//cria a pagona de formulario
+app.set('view engine', 'ejs');
+app.get('/cad-service', function(req,res){
+  res.render("cadService")
+})
+
 // adiciona o post da rota de serviços que esta na pasta de rotas -------------------------------------------------
 
 const serviceRoutes = require("./routes/serviceRoutes.js");
