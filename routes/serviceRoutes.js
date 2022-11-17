@@ -5,11 +5,9 @@ const Service = require("../models/Service")
 // cadastro de servicos - começo
 router.post('/', async (req, res) => {
 
-    
     const { icon, title, text } = req.body
-
     if(!icon || !title || !text){
-        res.status(422).json({error: "Todos os campos são obeigatórios"})
+        res.status(422).json({error: "Todos os campos são obrigatórios"})
         return
     }
 

@@ -2,16 +2,20 @@ const express = require("express");
 const res = require("express/lib/response");
 const mongoose = require("mongoose");
 const cors = require('cors');
-const router = require("./routes/serviceRoutes.js");
+const routerService = require("./routes/serviceRoutes.js");
+
 const app = express();
+const bodyparser = require("body-parser")
 app.use(express.json());
 app.use((req, res, next) =>{
   res.header("Access-Control-Allow-Origin", "*")
   app.use(cors());
   next();
 })
-const PORT = process.env.PORT || 3000
 
+const PORT = process.env.PORT || 3000
+app.use(bodyparser.urlencoded({extended: false}))
+app.use(bodyparser.json())
 //cria a pagona de formulario
 app.set('view engine', 'ejs');
 app.get('/cad-service', function(req,res){
@@ -23,7 +27,15 @@ app.get('/cad-service', function(req,res){
 const serviceRoutes = require("./routes/serviceRoutes.js");
 app.use("/service", serviceRoutes);
 
-// termino da adição do post ------------------------------------------------------------------------
+// termino da adição do post para serviços------------------------------------------------------------------------
+
+
+// adiciona o post da rota de Imagens que esta na pasta de rotas -------------------------------------------------
+
+const imageRoutes = require("./routes/imageRoutes.js");
+app.use("/image", imageRoutes);
+
+// termino da adição do post para imagens------------------------------------------------------------------------
 
 
 
