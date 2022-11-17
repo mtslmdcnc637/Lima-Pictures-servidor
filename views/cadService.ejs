@@ -8,8 +8,11 @@
 </head>
 <body>
     <h1>Cadastro de serviços</h1>
-    <form method="get">
-        <input type="">
+    <form method="post" action="/service">
+        <input type="text" name="icon" id="icon" placeholder="Ícone"><hr>
+        <input type="text" placeholder="Titulo do serviço" id="title" name="title"><hr>
+        <input type="text" name="text" id="text" placeholder="Descrição"><hr>
+        <input type="submit" value="Cadastrar">
     </form>
 </body>
 </html>
