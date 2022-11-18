@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+    <title>Dashboard</title>
+    <style>
+      body {
+        background-color: #00f;
+        display:grid;
+        place-content:center;
+      }
+      .conteiner {
+        width: 50%;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+        backdrop-filter: 2;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="conteiner">
+      <h1>Olá! bem vindo!</h1>
+      <i>Escolha uma opção abaixo</i>
+      <div class="options">
+        <a href="/new-image">Cadastrar imagem</a>
+        <a href="/new-video">Cadastrar video</a>
+        <a href="/new-audio">Cadastrar audio</a>
+        <a href="/cadService">Cadastrar serviço</a>
+      </div>
+      <div class="options">
+        <a href="/manager">Gerenciar cadastrados</a>
+      </div>
+    </div>
+  </body>
+</html>

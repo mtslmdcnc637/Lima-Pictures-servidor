@@ -17,9 +17,14 @@ const PORT = process.env.PORT || 3000
 app.use(bodyparser.urlencoded({extended: false}))
 app.use(bodyparser.json())
 
+//carrega a pagina de dashboard
+app.set('view engine', 'ejs');
+app.get("/", (req, res) => {
+  res.render("dashboard");
+});
+
 
 //cria a pagona de formulario
-app.set('view engine', 'ejs');
 app.get('/new-service', function(req,res){
   res.render("cadService")
 })
@@ -70,9 +75,6 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  res.json({ message: "primeira mensagem" });
-});
 
 mongoose
   .connect(
