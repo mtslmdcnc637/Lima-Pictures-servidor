@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Editar e excluir</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(45deg, orange, deeppink);
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+        }
+        .conteiner {
+            width:90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            margin-bottom: 50px;
+            padding-top:30px;
+            border-top: 1px solid white;
+        }
+        .conteiner li{
+            width: 155px;
+            height: 200px;
+            margin: 0 auto;
+            background-color: rgba(25, 25, 255, 0.4);
+            padding: 10px;
+            border-radius: 10px;
+            backdrop-filter: 2;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-around;
+            align-items:center;
+            color:#fff;
+        }
+        .conteiner li a{
+            text-decoration: none;
+            color: white;
+            font-size: 12px;
+            padding:10px 5px ;
+            border-radius: 5px;
+            background-color:orange;
+            transition:1s linear;
+            width: 90%;
+            text-align: center;
+            font-weight: 200;
+        }
+        .conteiner ul li img{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Editar e excluir</h1>
+    <a href="/">Voltar</a>
+    <h1>Serviços</h1>
+    <ul class="conteiner">
+        <% for(service of services) { %>
+            <li>
+                <h2><%= service.icon %></h2>
+                <p><%= service.title %></p>
+                <p><%= service.text %></p>
+                <a href="/dashboard/service/delete/<%= service.id %>">Excluir</a>
+            </li>
+        
+            <% } %>
+        
+    </ul>
+
+    <h1>Audios</h1>
+    <ul class="conteiner">
+        <% for(audio of audios) { %>
+            <li>
+                <h2><audio src="<%= audio.link %>"></audio></h2>
+                <a href="/dashboard/audio/delete/<%= audio.id %>">Excluir</a>
+            </li>
+        
+            <% } %>
+
+    </ul>
+
+    <h1>Imagens</h1>
+    <ul class="conteiner">
+        <% for(image of images) { %>
+            <li>
+                <img src="<%= image.link %>">
+                <h5><%= image.title %></h5>
+                <p><%= image.description %></p>
+                <a href="/dashboard/imagem/delete/<%= image.id %>">Excluir</a>
+            </li>
+        
+            <% } %>
+        
+
+    </ul>
+    <h1>Videos</h1>
+    <ul class="conteiner">
+        <% for(video of videos) { %>
+            <li>
+                <%= video.link %>
+                <a href="/dashboard/video/delete/<%= video.id %>">Excluir</a>
+            </li>
+        
+            <% } %>
+    </ul>
+    <img src="https://drive.google.com/file/d/1bofGPAHb3r7TNsANFMAYm_V2c-rQ0Qiw/view" alt="Imagem">
+</body>
+</html>

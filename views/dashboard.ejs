@@ -8,14 +8,17 @@
     <title>Dashboard</title>
     <style>
       body {
-        background-color: #00f;
-        display:grid;
-        place-content:center;
+        background: linear-gradient(45deg, orange, deeppink);
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
       .conteiner {
-        width: 50%;
+        width: 40vw;
+        height: 42vw;
         margin: 0 auto;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.4);
         padding: 10px;
         border-radius: 10px;
         backdrop-filter: 2;
@@ -23,7 +26,38 @@
         flex-direction:column;
         justify-content:center;
         align-items:center;
-        gap: 50px;
+      }
+      .conteiner-options {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+      }
+      .options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 50%;
+        align-items: top;
+        justify-content: center;
+
+      }
+      .options a {
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+        padding:10px 5px ;
+        border-radius: 5px;
+        background-color:orange;
+        transition:1s linear;
+        width: 90%;
+        text-align: center;
+        font-weight: 200;
+      }
+      .options a:hover {
+        background: linear-gradient(-45deg, deeppink, orange);
+        
       }
     </style>
   </head>
@@ -31,15 +65,17 @@
     <div class="conteiner">
       <h1>Olá! bem vindo!</h1>
       <i>Escolha uma opção abaixo</i>
+      <div class="conteiner-options">
       <div class="options">
         <a href="/new-image">Cadastrar imagem</a>
         <a href="/new-video">Cadastrar video</a>
         <a href="/new-audio">Cadastrar audio</a>
-        <a href="/cadService">Cadastrar serviço</a>
+        <a href="/new-service">Cadastrar serviço</a>
       </div>
       <div class="options">
         <a href="/manager">Gerenciar cadastrados</a>
       </div>
+    </div>
     </div>
   </body>
 </html>

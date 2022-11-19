@@ -24,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 
+
 //cria a pagona de formulario
 app.get('/new-service', function(req,res){
   res.render("cadService")
@@ -65,6 +66,29 @@ app.use("/video", videoRoutes);
 const audioRoutes = require("./routes/audioRoutes.js");
 app.use("/audio", audioRoutes);
 // termino da adição do post para audios------------------------------------------------------------------------
+
+//pega todos os cadastros do banco de dados e seta como arrays
+//carrega a paginda de gerenciamento dos cadastros
+app.get("/manager", async (req, res) => {
+  try {
+    const Service = require("./models/Service");
+    const Image = require("./models/Image");
+    const Video = require("./models/Video");
+    const Audio = require("./models/Audio");
+
+    const services = await Service.find();
+    const images = await Image.find();
+    const videos = await Video.find();
+    const audios = await Audio.find();
+    
+    res.render("manager", {services, images, videos, audios});
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+    
+  }
+
+);
 
 const DB_USER = "SitePortfolio";
 const DB_PASS = encodeURIComponent("TlXQ7bGyg1GcrvbC");
