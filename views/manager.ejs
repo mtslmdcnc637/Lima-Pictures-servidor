@@ -29,7 +29,7 @@
             border-top: 1px solid white;
         }
         .conteiner li{
-            width: 155px;
+            width: 205px;
             height: 200px;
             margin: 0 auto;
             background-color: rgba(25, 25, 255, 0.4);
@@ -54,9 +54,11 @@
             text-align: center;
             font-weight: 200;
         }
-        .conteiner ul li img{
-            width:100%;
+        .conteiner li img{
+            max-width:100%;
+            max-height: 70%;
         }
+
     </style>
 </head>
 <body>
@@ -69,7 +71,7 @@
                 <h2><%= service.icon %></h2>
                 <p><%= service.title %></p>
                 <p><%= service.text %></p>
-                <a href="/dashboard/service/delete/<%= service.id %>">Excluir</a>
+                <a href="/service/delete/<%= service.id %>">Excluir</a>
             </li>
         
             <% } %>
@@ -81,7 +83,7 @@
         <% for(audio of audios) { %>
             <li>
                 <h2><audio src="<%= audio.link %>"></audio></h2>
-                <a href="/dashboard/audio/delete/<%= audio.id %>">Excluir</a>
+                <a href="/audio/delete/<%= audio.id %>">Excluir</a>
             </li>
         
             <% } %>
@@ -92,10 +94,10 @@
     <ul class="conteiner">
         <% for(image of images) { %>
             <li>
-                <img src="<%= image.link %>">
+                <img src="<%= image.link %>" alt="<%= image.title %>">
                 <h5><%= image.title %></h5>
                 <p><%= image.description %></p>
-                <a href="/dashboard/imagem/delete/<%= image.id %>">Excluir</a>
+                <a href="/image/delete/<%= image.id %>">Excluir</a>
             </li>
         
             <% } %>
@@ -106,12 +108,17 @@
     <ul class="conteiner">
         <% for(video of videos) { %>
             <li>
-                <%= video.link %>
-                <a href="/dashboard/video/delete/<%= video.id %>">Excluir</a>
+
+
+                
+        <iframe width="560" height="315" style="position: relative;width: 100%;height: fit-content;" src="https://www.youtube.com/embed/<%= video.link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+                <a href="/video/delete/<%= video.id %>">Excluir</a>
             </li>
         
             <% } %>
     </ul>
-    <img src="https://drive.google.com/file/d/1bofGPAHb3r7TNsANFMAYm_V2c-rQ0Qiw/view" alt="Imagem">
 </body>
 </html>

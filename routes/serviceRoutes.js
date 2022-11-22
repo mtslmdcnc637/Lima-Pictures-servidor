@@ -44,5 +44,22 @@ router.patch('/:id', async (req,res) => {
     }
 })
 
+//se a requisição for para deletar ---------------
+router.get("/delete/:id", async (req, res) => {
+    const id = req.params.id;
+    const service = await Service.findOne({ _id: id})
+    if(!service){
+      res.status(422).json({error: "Serviço não encontrada"})
+      return
+    }
+    try {
+      await Service.deleteOne({ _id: id });
+      res.status(200)
+      res.send("<h1 style='color:red'>Removido com sucesso</h1><br><a href='/manager'>Voltar</a>' ");
+    } catch (error) {
+      res.status(500).json({ error: error });
+    }
+  });
+  
 
 module.exports = router
